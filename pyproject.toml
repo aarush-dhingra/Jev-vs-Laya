@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decision-chess"
+version = "0.1.0"
+description = "Jev versus Laya chess with shared lightweight analysis and post-game review"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "GPL-3.0-or-later"
+dependencies = ["chess==1.11.2"]
+
+[project.urls]
+Repository = "https://github.com/aarush-dhingra/Jev-vs-Laya"
+Issues = "https://github.com/aarush-dhingra/Jev-vs-Laya/issues"
+
+[project.optional-dependencies]
+models = ["laya==0.3.5", "torch==2.10.0", "transformers==5.17.0", "safetensors==0.8.0", "tokenizers==0.23.2", "huggingface_hub==1.32.0"]
+dev = ["ruff==0.15.13", "build>=1,<2"]
+
+[project.scripts]
+decision-chess = "arena.server:main"
+decision-chess-worker = "arena.laya_worker:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+arena = ["web/*.html", "web/*.js", "web/*.css"]
+
+[tool.ruff]
+cache-dir = "var/ruff-cache"
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
