@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local runtime and generated data
+var/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
